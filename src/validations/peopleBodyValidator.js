@@ -2,13 +2,11 @@ const Joi = require('joi')
 
 const schema = Joi.object(
   {
-    firstName: Joi.string().alphanum().min(3).max(30).required(),
-    lastName: Joi.string().alphanum().min(3).max(30).required(),
-    username: Joi.string().min(6).max(16).required(),
-    password: Joi.string().required(),
-    email: Joi.string().email().required(),
-    address: Joi.string().required(),
-    phone: Joi.string().min(9).max(13).required()
+    firstName: { type: String, required: true, minLength: 3, maxLength: 30 },
+    lastName: { type: String, required: true, minLength: 3, maxLength: 30 },
+    username: { type: String, required: true, minLength: 3, maxLength: 30, unique: true },
+    email: { type: String, required: true, unique: true },
+    address: { type: String, required: true }
   }
 )
 

@@ -2,14 +2,11 @@ const Joi = require('joi')
 
 const schema = Joi.object(
   {
-
-    firstName: Joi.string().alphanum().min(3).max(30).required(),
-    lastName: Joi.string().alphanum().min(3).max(30).required(),
-    grade: Joi.string().required(),
-    divition: Joi.string().required(),
-    age: Joi.number().integer().min(1).max(50).required(),
-    username: Joi.string().min(6).max(16).required(),
-    password: Joi.string().required()
+    nickName: { type: String, required: true, minLength: 3, maxLength: 30 },
+    genre: { type: String, required: true, minLength: 3, maxLength: 30 },
+    nationality: { type: String, required: true, maxLength: 30 },
+    age: { type: Number, required: true },
+    songs: { type: String, required: true, minLength: 3, maxLength: 30 }
   }
 )
 
